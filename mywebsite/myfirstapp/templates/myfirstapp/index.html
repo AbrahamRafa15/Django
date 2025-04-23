@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index page</title>
+</head>
+<body>
+    <p>Listado de estudiantes</p>
+    {% if estudiantes %}
+    <ul>
+        {% for estudiante in estudiantes %}
+        <li><a href="/myfirstapp/{{ estudiante.id }}/detalles">
+            {{estudiante.nombre}}
+            {{estudiante.apellidos}}
+        </a></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No hay estudiantes registrados.</p>
+    {% endif %}
+</body>
+</html>
