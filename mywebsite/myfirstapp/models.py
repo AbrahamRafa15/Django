@@ -25,5 +25,8 @@ class Carrera(models.Model):
     tipo = models.IntegerField(choices=OPCIONES_TIPO, null=True, blank=True)
     nombre = models.CharField(max_length=200)
 
-    def __str__(self):
-        return str(self.tipo) + " " + self.nombre
+    #def __str__(self):
+    #    return str(self.tipo) + " " + self.nombre
+    
+    def get_tipo(self):
+        return Carrera.OPCIONES_TIPO[self.tipo-1][1]
