@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Pensión</title>
+</head>
+<body>
+    <h1>Registrar Pensionado</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <p>Nombre: <input type="text" name="nombre" required></p>
+        <p>Edad actual: <input type="number" name="edad" value="0" required></p>
+        <p>Edad de retiro: <input type="number" name="edadretiro" value="70" required></p>
+        <p>Saldo actual: <input type="number" step="0.01" name="saldo" value="500000" required></p>
+        <p>Ahorro mensual: <input type="number" step="0.01" name="ahorro" value="10000" required></p>
+        <p>Género (marcar si es hombre): <input type="checkbox" name="genero"></p>
+
+        <button type="submit">Agregar</button>
+        <button type="reset">Limpiar</button>
+    </form>
+</body>
+</html>

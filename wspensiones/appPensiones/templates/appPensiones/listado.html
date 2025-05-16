@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Pensionados</title>
+</head>
+<body>
+    <h1>Listado de Pensionados</h1>
+    <p>
+        Ordenar por:
+        <a href="?orden=nombre">Nombre</a> |
+        <a href="?orden=edad">Edad actual</a> |
+        <a href="?orden=saldo">Saldo acumulado</a> |
+        <a href="?orden=ahorro">Ahorro mensual</a>
+    </p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad actual</th>
+                <th>Edad de retiro</th>
+                <th>Saldo acumulado</th>
+                <th>Ahorro mensual</th>
+                <th>Pensión mensual esperada</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in pensionados %}
+            <tr>
+                <td>{{ p.nombre }}</td>
+                <td>{{ p.edad }}</td>
+                <td>{{ p.edadretiro }}</td>
+                <td>${{ p.saldo|floatformat:2 }}</td>
+                <td>${{ p.ahorro|floatformat:2 }}</td>
+                <td>${{ p.calcula_pension }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No hay registros aún.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="{% url 'appPensionados:index' %}">Registrar nuevo pensionado</a></p>
+</body>
+</html>

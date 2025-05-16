@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+</head>
+<body>
+    <h1>Pensión registrada</h1>
+    <p>Nombre del trabajador: <strong>{{ pensionado.nombre }}</strong></p>
+    <p>Pensión mensual estimada: <strong>${{ pension }}</strong></p>
+
+    <a href="{% url 'appPensionados:index' %}">Registrar otro trabajador</a>
+</body>
+</html>

@@ -11,3 +11,6 @@ class Pensionado(models.Model):
 
     def __str__(self):
         return str(self.nombre)
+    
+    def calcula_pension(self):
+        return str(self.saldo + self.ahorro * 12 * (self.edadRetiro - self.edad))
